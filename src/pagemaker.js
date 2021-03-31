@@ -1,8 +1,8 @@
 const allCards = []
 let card
 
-function renderCards (team) {
-  team.forEach(member => {
+function renderCards (group) {
+  group.forEach(member => {
     let role = member.getRole()
     switch (role) {
       case 'Manager':
@@ -50,12 +50,13 @@ function renderCards (team) {
       default:
         break
     }
-    allCards.push(card);
+    allCards.push(card)
   })
 }
 
-function makePage(){ 
-return `<!DOCTYPE html>
+function makePage () {
+  renderCards(team);
+  return `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -84,6 +85,7 @@ ${allCards}
         crossorigin="anonymous"></script>
 </body>
 
-</html>`}
+</html>`
+}
 
-module.exports = renderCards, makePage;
+module.exports = makePage

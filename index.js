@@ -4,7 +4,6 @@ const Employee = require('./lib/Employee')
 const Manager = require('./lib/Manager')
 const Intern = require('./lib/Intern')
 const Engineer = require('./lib/Engineer')
-const renderCards = require('./src/pagemaker')
 const makePage = require('./src/pagemaker')
 
 const team = []
@@ -47,7 +46,6 @@ function setManager () {
         answers.office
       )
       team.push(manager)
-      console.log(team)
       if (answers.menu === "Enter engineer's info") {
         setEngineer()
       } else if (answers.menu === "Enter intern's info") {
@@ -94,17 +92,18 @@ function setEngineer () {
         answers.github
       )
       team.push(engineer)
+
       if (answers.menu === "Enter engineer's info") {
         setEngineer()
       } else if (answers.menu === "Enter intern's info") {
         setIntern()
       } else {
         console.log(team)
-        renderCards(team)
-        const htmlContent = makePage();
+        const htmlContent = makePage()
 
-        fs.appendFile('index.html', htmlContent, err =>
+    fs.appendFile('index.html', htmlContent, err =>
           err ? console.log(err) : console.log('Success!')
+        )
       }
     })
 }
@@ -153,10 +152,9 @@ function setIntern () {
         setIntern()
       } else {
         console.log(team)
-        renderCards(team)
-        const htmlContent = makePage();
+        const htmlContent = makePage()
 
-        fs.appendFile('index.html', htmlContent, err =>
+    fs.appendFile('index.html', htmlContent, err =>
           err ? console.log(err) : console.log('Success!')
         )
       }
