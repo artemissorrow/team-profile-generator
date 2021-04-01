@@ -16,6 +16,10 @@ a {
     text-decoration: none;
 }
 
+.card {
+    width: 18rem;
+}
+
 .custom-jumbo {
     background-color: var(--turquoise);
     border-bottom: solid 3px var(--coral);
